@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .player-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        #audioPlayer {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .status {
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <h1>Radio Online</h1>
+        <audio id="audioPlayer" controls>
+            <source src="/audio/" type="audio/mpeg">
+            Tu navegador no soporta el elemento audio.
+        </audio>
+        <div class="status" id="statusText">Listo para reproducir</div>
+    </div>
+
+    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const statusText = document.getElementById('statusText');
+
+        audioPlayer.addEventListener('play', () => {
+            statusText.textContent = 'Reproduciendo';
+        });
+
+        audioPlayer.addEventListener('pause', () => {
+            statusText.textContent = 'Pausado';
+        });
+
+        audioPlayer.addEventListener('ended', () => {
+            statusText.textContent = 'Finalizado';
+        });
+
+        audioPlayer.addEventListener('error', (e) => {
+            console.error('Error de audio:', e);
+            statusText.textContent = 'Error: No se pudo cargar el audio';
+        });
+    </script>
+</body>
+</html>

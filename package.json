@@ -1,0 +1,12 @@
+{
+  "name": "radio-online",
+  "version": "1.0.0",
+  "description": "Estación de radio online",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
